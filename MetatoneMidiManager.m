@@ -39,17 +39,20 @@
 
 -(void) midi:(PGMidi*)midi sourceAdded:(PGMidiSource *)source {
     [source addDelegate:self];
-    NSLog(@"Midi Source Added");
+    NSLog(@"Midi Source Added: %@", source.name);
 }
 
 -(void) midi:(PGMidi*)midi sourceRemoved:(PGMidiSource *)source {
-    NSLog(@"Midi Source Removed");
+    NSLog(@"Midi Source Removed: %@", source.name);
 }
 
--(void) midi:(PGMidi*)midi destinationAdded:(PGMidiDestination *)destination{}
+-(void) midi:(PGMidi*)midi destinationAdded:(PGMidiDestination *)destination{
+    NSLog(@"Midi Destination Added: %@", destination.name);
+}
 
--(void) midi:(PGMidi*)midi destinationRemoved:(PGMidiDestination *)destination {}
-
+-(void) midi:(PGMidi*)midi destinationRemoved:(PGMidiDestination *)destination {
+    NSLog(@"Midi Destination Removed: %@", destination.name);
+}
 
 -(void) midiSource:(PGMidiSource *)input midiReceived:(const MIDIPacketList *)packetList
 {
